@@ -25,8 +25,8 @@ pipeline{
             steps{
                withDockerRegistry([credentialsId: "docker-hub", url: "https://hub.docker.com/repositories/metbell"]){
                 sh 'printenv'
-                sh 'docker build -t metbell/numeric-app:""$GIT_COMMIT"" .'
-                sh 'docker push metbell/numeric-app:""$GIT_COMMIT""'
+                sh 'sudo docker build -t metbell/numeric-app:""$GIT_COMMIT"" .'
+                sh 'sudo docker push metbell/numeric-app:""$GIT_COMMIT""'
               }
             }
         }
