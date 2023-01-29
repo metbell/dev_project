@@ -21,10 +21,10 @@ pipeline{
                 }
             }
         }
-        stage{
+        stage('Docker build&push '){
             steps{
               docker.withRegistry([credentialsId: "docker-hub", url: ""]){
-                printenv
+                sh 'printenv'
                 sh 'docker build -t metbell/numeric-app:""$GIT_COMMIT"" .'
                 sh 'docker push metbell/numeric-app:""$GIT_COMMIT""'
               }
