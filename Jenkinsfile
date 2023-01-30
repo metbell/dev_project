@@ -23,12 +23,12 @@ pipeline{
         }
         stage('Docker build&push '){
             steps{
-               withDockerRegistry([credentialsId: "docker-hub", url: ""]){
+               //withDockerRegistry([credentialsId: "docker-hub", url: ""]){
                 sh 'printenv'
                 sh 'docker build -t metbell/numeric-app:""$GIT_COMMIT"" .'
                 sh 'cat ~/secret.txt | docker login -u metbell --password-stdin'
                 sh 'docker push metbell/numeric-app:""$GIT_COMMIT""'
-              }
+             // }
             }
         }
    }
