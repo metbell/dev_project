@@ -27,7 +27,7 @@ pipeline{
                withDockerRegistry([credentialsId: "docker-hub", url: ""]){
                 sh 'printenv'
                 sh 'sudo docker build -t metbell/numeric-app:""$GIT_COMMIT"" .'
-                sh 'cat ~/secret.txt | docker login -u metbell --password-stdin'
+                //sh 'cat ~/secret.txt | docker login -u metbell --password-stdin'
                 sh 'sudo docker push metbell/numeric-app:""$GIT_COMMIT""'
               }
             }
