@@ -21,6 +21,7 @@ pipeline{
                 }
             }
         }
+<<<<<<< HEAD
 
         stage('Copying Artifact'){
             steps{
@@ -31,6 +32,8 @@ pipeline{
             
         }
 
+=======
+>>>>>>> e6c72dff6fc5551dcafda17e5085d62ac17607e9
         stage('Sonarqube - SAST'){
             steps{
                 sh "mvn sonar:sonar -Dsonar.projectKey=numeric-application -Dsonar.host.url=http://192.168.1.253:9000  -Dsonar.login=3cc407241a46bf3c760fe683c9d8ae6001f92563"
