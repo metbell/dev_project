@@ -21,6 +21,7 @@ pipeline{
                 }
             }
         }
+<<<<<<< HEAD
         stage('Sonarqube - SAST'){
             steps{
                 sh "mvn sonar:sonar -Dsonar.projectKey=numeric-application -Dsonar.host.url=http://192.168.1.253:9000  -Dsonar.login=3cc407241a46bf3c760fe683c9d8ae6001f92563"
@@ -28,6 +29,8 @@ pipeline{
             
         }
 
+=======
+>>>>>>> 383bd1fe6ba4aaafc269c2e73e38d64c12c1e524
         stage('Docker build and push '){
             steps{
              sh 'sudo -i'
