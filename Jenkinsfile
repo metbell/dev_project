@@ -24,8 +24,8 @@ pipeline{
 
         stage('Copying Artifact'){
             steps{
-                echo '################-_-copying-_-##############'
-                sh  'scp ""$PWD""/target/*.jar 192.168.1.253:~/opt/app'
+                echo '################-_-copying Artifacts-_-##############'
+                sh  'scp ""$PWD""/target/*.jar 192.168.1.253:/opt/app'
                 
             }     
             
