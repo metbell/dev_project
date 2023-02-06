@@ -22,6 +22,28 @@ pipeline{
             }
         }
 
+        stage('Artifact uploader - Nexus'){
+            steps{
+                nexusArtifactUploader(
+                     nexusVersion: 'nexus3',
+                     protocol: 'http',
+                     nexusUrl: 'http://192.168.1.253:8081/repository/dev/',
+                     groupId: 'com.devsecops',
+                     version: 0.0.1,
+                     repository: 'dev',
+                     credentialsId: 'nexus-repo',
+        artifacts: [
+            [artifactId: numeric,
+             classifier: '',
+             file: 'my-service-' + version + '.jar',
+             type: 'jar']
+        ]
+     )
+                
+            }     
+            
+        }
+
         stage('Sonarqube - SAST'){
             steps{
                 sh "mvn sonar:sonar -Dsonar.projectKey=numeric-application -Dsonar.host.url=http://192.168.1.253:9000  -Dsonar.login=3cc407241a46bf3c760fe683c9d8ae6001f92563"
