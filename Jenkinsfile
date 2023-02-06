@@ -29,7 +29,7 @@ pipeline{
                      protocol: 'http',
                      nexusUrl: 'http://192.168.1.253:8081/repository/dev/',
                      groupId: 'com.devsecops',
-                     version: 0.0.1,
+                     version: '0.0.1',
                      repository: 'dev',
                      credentialsId: 'nexus-repo',
         artifacts: [
