@@ -30,7 +30,7 @@ pipeline{
                      nexusUrl: '192.168.1.253:8081',
                      groupId: 'com.devsecops',
                      version: '0.0.1',
-                     repository: 'http://192.168.1.253:8081/repository/numeric-release/',
+                     repository: 'numeric-release',
                      credentialsId: 'nexus-repo',
                      artifacts: [[artifactId: 'numeric', classifier: '', file: 'target/numeric-0.0.1.jar', type: 'jar']]
                 )
