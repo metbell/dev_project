@@ -22,22 +22,22 @@ pipeline{
             }
         }
 
-        stage('Artifact uploader - Nexus'){
-            steps{
-                nexusArtifactUploader(
-                     nexusVersion: 'nexus3',
-                     protocol: 'http',
-                     nexusUrl: '192.168.1.253:8081',
-                     groupId: 'com.devsecops',
-                     version: '0.0.1',
-                     repository: 'numeric-release',
-                     credentialsId: 'nexus-repo',
-                     artifacts: [[artifactId: 'numeric', classifier: '', file: 'target/numeric-0.0.1.jar', type: 'jar']]
-                )
+    //    stage('Artifact uploader - Nexus'){
+     //       steps{
+    //         nexusArtifactUploader(
+    //                 nexusVersion: 'nexus3',
+     //                protocol: 'http',
+      //               nexusUrl: '192.168.1.253:8081',
+      //               groupId: 'com.devsecops',
+      //               version: '0.0.1',
+      //               repository: 'numeric-release',
+       //              credentialsId: 'nexus-repo',
+        //             artifacts: [[artifactId: 'numeric', classifier: '', file: 'target/numeric-0.0.1.jar', type: 'jar']]
+     //)
                 
-            }     
+           // }     
             
-        }
+        //}
 
         stage('Sonarqube - SAST'){
             steps{
