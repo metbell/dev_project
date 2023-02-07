@@ -27,15 +27,15 @@ pipeline{
                 nexusArtifactUploader(
                      nexusVersion: 'nexus3',
                      protocol: 'http',
-                     nexusUrl: 'http://192.168.1.253:8081/repository/numeric-release/',
+                     nexusUrl: '192.168.1.253:8081',
                      groupId: 'com.devsecops',
                      version: '0.0.1',
-                     repository: 'numeric-release',
+                     repository: 'http://192.168.1.253:8081/repository/numeric-release/',
                      credentialsId: 'nexus-repo',
         artifacts: [
             [artifactId: numeric,
              classifier: '',
-             file: 'target/numeric' + version + '.jar',
+             file: 'target/numeric-0.0.1.jar',
              type: 'jar']
         ]
      )
