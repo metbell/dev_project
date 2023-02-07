@@ -33,7 +33,7 @@ pipeline{
                      repository: 'http://192.168.1.253:8081/repository/numeric-release/',
                      credentialsId: 'nexus-repo',
         artifacts: [
-            [artifactId: numeric,
+            [artifactId: 'numeric',
              classifier: '',
              file: 'target/numeric-0.0.1.jar',
              type: 'jar']
