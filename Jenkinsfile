@@ -1,5 +1,8 @@
 pipeline{
  agent any
+ environment{
+    imageName = "metbell/numeric-app:${GIT_COMMIT}"
+ }
     stages{
         stage('Build Artifact'){
             steps{
@@ -57,6 +60,12 @@ pipeline{
              // }
             }
         }
+        stage('Trivy Scan'){
+            steps{
+                sh "bash trivy-image-scan.sh"
+            }     
+        }    
+
         stage('K8S Deployment - DEV') {
             steps {
                 withKubeConfig([credentialsId: 'kubeconfig']) {
